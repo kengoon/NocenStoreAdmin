@@ -1,0 +1,75 @@
+<MySwiper@MDSwiperItem>
+    source:""
+
+    RelativeLayout:
+
+        FitImage:
+            source: root.source
+            radius: [dp(20)]
+
+        MDBoxLayout:
+            adaptive_height: True
+            canvas:
+                Color:
+                    rgba: 0,0,0,.4
+                RoundedRectangle:
+                    pos:self.pos
+                    size:self.size
+                    radius:[0,0,dp(20),dp(20)]
+
+            M_MDIconButton:
+                id: icon
+                icon:f"{icon('icon-trash', int(dp(32)), 'ffffff', 'fontello')}"
+
+            MDLabel:
+                text: f"[size={int(dp(32))}]ads[/size]"
+                font_name:"assets/ua_scroonge.ttf"
+                size_hint_y: None
+                halign: "center"
+                markup: True
+                height: self.texture_size[1]
+                opposite_colors: True
+                pos_hint:{"center_x":.5}
+
+            M_MDIconButton:
+                id: icon
+                icon:f"{icon('icon-doc-add', int(dp(32)), 'ffffff', 'fontello')}"
+
+<Ads>:
+    name: "ads"
+
+    BoxLayout:
+        id: swiper
+        opacity:0
+        orientation: "vertical"
+        spacing: dp(20)
+        MDSwiper:
+            id:swipe
+            size_hint_y: None
+            height: root.height/1.5
+            items_spacing: "20sp"
+            MySwiper:
+                source:f"assets/images/{listdir('assets/images')[0]}"
+            MySwiper:
+                source:f"assets/images/{listdir('assets/images')[1]}"
+            MySwiper:
+                source:f"assets/images/{listdir('assets/images')[4]}"
+
+        ScrollView:
+            MDList:
+                spacing: dp(20)
+                MDBoxLayout:
+                    adaptive_height: True
+                    orientation: "vertical"
+                    MDRaisedButton:
+                        elevation: 8
+                        text: f"[size={int(dp(32))}]stop all ads[/size]"
+                        font_name:"assets/ua_scroonge.ttf"
+                        markup:True
+                        pos_hint:{"center_x":.5}
+
+
+    Label:
+        id: icolabel
+        text: f"{icon('icon-googleads', int(dp(128)), '4384f4', 'icomoon')}"
+        markup: True

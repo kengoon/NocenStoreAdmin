@@ -1,0 +1,36 @@
+<InitServer>:
+    name:"init"
+    canvas.before:
+        Color
+            rgba: app.theme_cls.primary_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+    Image:
+        source:"assets/N1d.PNG"
+        pos_hint:{"center_x":.55, "center_y":.6}
+        #size_hint_y: None
+        #size_hint_x: None
+        #size: 200,200
+
+    Label:
+        id:spinner
+        color: 1,1,1,1
+        pos_hint: {"center_x":.5, "center_y":.3}
+        p: 0
+        text: f"{icon(f'icon-progress-{self.p}', int(dp(64)), 'ffffff', 'fontello')}"
+        markup: True
+        on_p:
+            self.text = f"{icon(f'icon-progress-{int(self.p)}', int(dp(64)), 'ffffff', 'fontello')}"
+
+
+    MDLabel:
+        id: server_info
+        text: "We are So Sorry Server is Down.....\nWe are Working So Hard To Fix it. \nPlease Bear With Us......"
+        opacity: 0
+        halign: "center"
+        font_style: "Button"
+        color: 0,0,0,.6
+        pos_hint:{"center_x":.5, "center_y":.4}

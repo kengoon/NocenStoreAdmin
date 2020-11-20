@@ -1,0 +1,61 @@
+<LoadMore@MDSwiperItem+RectangularElevationBehavior>:
+    orientation: "vertical"
+    elevation: 8
+    canvas.before:
+        Color:
+            rgba:1,1,1,1
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [dp(20)]
+    GridLayout:
+        cols:1
+        padding:[dp(20)]
+        MDBoxLayout:
+            orientation:"vertical"
+            MDRaisedButton:
+                pos_hint:{"center_x": .5}
+                text: f"load more"
+                font_name:"assets/ua_scroonge.ttf"
+                on_release:
+                    spinner.active = True
+        MDBoxLayout:
+            orientation:"vertical"
+            MDSpinner:
+                id: spinner
+                size: dp(48), dp(48)
+                pos_hint: {"center_x":.5}
+                active: False
+                size_hint: None, None
+<ImageList>
+    source:""
+    text:""
+
+    RelativeLayout:
+
+        FitImage:
+            source: root.source
+
+        MDBoxLayout:
+            adaptive_height: True
+            padding: ["10dp", 0, "10dp", 0]
+            canvas:
+                Color:
+                    rgba: 0,0,0,.4
+                RoundedRectangle:
+                    pos:self.pos
+                    size:self.size
+
+            MDLabel:
+                text: root.text
+                font_name:"assets/ua_scroonge.ttf"
+                font_size: dp(12)
+                size_hint_y: None
+                markup: True
+                height: self.texture_size[1]
+                opposite_colors: True
+                pos_hint:{"center_y":.5}
+
+            M_MDIconButton:
+                id: icon
+                icon:f"{icon('icon-verizon', int(dp(32)), 'ffffff', 'icomoon')}"

@@ -1,0 +1,28 @@
+<CCard@MsCard>:
+    elevation: 8
+    orientation: "vertical"
+    icon: ""
+    text:""
+    radius:[dp(20)]
+    item: ""
+    index: 4
+    on_release:
+        app.root.screens[2].go_to(self.item, self.index)
+    MDBoxLayout:
+        Label:
+            markup:True
+            text:root.icon
+
+    MDBoxLayout:
+        canvas.before:
+            Color:
+                rgba: app.theme_cls.primary_color
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius:[0,0,dp(20),dp(20)]
+        Label:
+            font_name:"assets/ua_scroonge.ttf"
+            text: root.text
+            color: 1,1,1,1
+            markup:True

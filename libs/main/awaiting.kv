@@ -1,0 +1,22 @@
+<Awaiting>:
+    name:"awaiting"
+
+    RecycleView:
+        id: rv
+        opacity: 0
+        effect_cls: ScrollEffect
+        viewclass: "ImageList"
+        data:[{"text":"product", "source": "assets/images/0.jpeg"}, {"text":"product", "source":"assets/images/0.jpeg"}, {"text":"product", "source": "assets/images/0.jpeg"}, {"text":"product", "source": "assets/images/0.jpeg"}, {"text":"product", "source": "assets/images/0.jpeg"}, {"text":"product", "source": "assets/images/0.jpeg"}, {"text":"product", "source": "assets/images/0.jpeg"}, {"text":"product", "source": "assets/images/0.jpeg"}]
+        RecycleGridLayout:
+            default_size_hint: None, None
+            default_size: root.width/2 - dp(20), root.width/2 - dp(20)
+            size_hint_y: None
+            height: self.minimum_height
+            spacing:dp(20), dp(10)
+            cols: 2
+            padding: dp(10), dp(10), dp(10), dp(10)
+
+    Label:
+        id: icolabel
+        markup:True
+        text:f"{icon('icon-floatplane', int(dp(128)), '42c531', 'icomoon')}"

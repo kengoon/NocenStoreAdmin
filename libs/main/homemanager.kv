@@ -1,0 +1,27 @@
+<HomeManager>:
+    name:"home manager"
+    BoxLayout:
+        orientation: "vertical"
+        MDBoxLayout:
+            adaptive_height: True
+            spacing: dp(20)
+            M_MDIconButton:
+                icon: f"{icon('icon-chevron-left', int(dp(32)), get_hex_from_color(app.theme_cls.primary_color), 'icomoon2')}"
+                on_release:
+                    root.manager.current = "home"
+            MDLabel:
+                id: toolbar_name
+                font_name:"assets/ua_scroonge.ttf"
+                text: ""
+                font_size: dp(25)
+                markup: True
+                color: app.theme_cls.primary_color
+
+        ScreenManager:
+            id: manager
+            transition: CardTransition(mode="push")
+
+
+        M_AKBottomNavigation:
+            id: bottom_navigation
+            items: root.bottomnavigation_items

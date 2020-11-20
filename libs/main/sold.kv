@@ -1,0 +1,87 @@
+<MySwiperSold>
+    source:""
+    text:
+
+    RelativeLayout:
+
+        FitImage:
+            source: root.source
+            radius: [dp(20)]
+
+        MDBoxLayout:
+            adaptive_height: True
+            padding: ["10dp", 0, "10dp", 0]
+            canvas:
+                Color:
+                    rgba: 0,0,0,.4
+                RoundedRectangle:
+                    pos:self.pos
+                    size:self.size
+                    radius:[0,0,dp(20),dp(20)]
+
+            MDLabel:
+                text: f"[size={int(dp(17))}]{root.text} (sold)[/size]"
+                font_name:"assets/ua_scroonge.ttf"
+                size_hint_y: None
+                markup: True
+                height: self.texture_size[1]
+                opposite_colors: True
+                pos_hint:{"center_y":.5}
+
+            M_MDIconButton:
+                id: icon
+                icon:f"{icon('icon-trash', int(dp(32)), 'ffffff', 'fontello')}"
+
+<MySwiperBought>
+    source:""
+    text:
+
+    RelativeLayout:
+
+        FitImage:
+            source: root.source
+            radius: [20]
+
+        MDBoxLayout:
+            adaptive_height: True
+            padding: ["10dp", 0, "10dp", 0]
+            canvas:
+                Color:
+                    rgba: 0,0,0,.4
+                RoundedRectangle:
+                    pos:self.pos
+                    size:self.size
+                    radius:[0,0,20,20]
+
+            MDLabel:
+                text: f"[size={int(dp(16))}]{root.text} (bought)[/size]"
+                font_name:"assets/ua_scroonge.ttf"
+                size_hint_y: None
+                markup: True
+                height: self.texture_size[1]
+                opposite_colors: True
+                pos_hint:{"center_y":.5}
+
+            M_MDIconButton:
+                id: icon
+                icon:f"{icon('icon-verizon', int(dp(32)), get_hex_from_color(app.theme_cls.primary_color), 'icomoon')}"
+<Sold>:
+    name:"sold"
+    BoxLayout:
+        id: swiper
+        opacity:0
+        orientation: "vertical"
+        spacing: dp(10)
+        padding:[0, dp(10), 0, dp(10)]
+        MDSwiper:
+            id:swipe
+            items_spacing: "20sp"
+        MDSeparator:
+        MDSwiper:
+            id:swipe2
+            items_spacing: "20sp"
+
+    Label:
+        id: icolabel
+        markup: True
+        text:f"{icon('icon-marketo', int(dp(128)), '424242', 'icomoon')}"

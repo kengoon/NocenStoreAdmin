@@ -1,0 +1,50 @@
+<Home>:
+    name: "home"
+    MDBoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [0, 0, dp(100), dp(100)]
+
+        BoxLayout:
+    BoxLayout:
+        orientation: "vertical"
+
+        MDBoxLayout:
+            adaptive_height: True
+            padding: dp(10)
+            MDLabel:
+                font_name:"assets/ua_scroonge.ttf"
+                text: f"[size={int(dp(32))}]the admin[/size]"
+                markup: True
+                color: 1,1,1,1
+
+            MDTextButton:
+                text: f"{icon('icon-buffer', int(dp(32)), 'ffffff', 'icomoon')}"
+                markup: True
+
+
+
+        RecycleView:
+            effect_cls: ScrollEffect
+            viewclass: 'CCard'
+            data:
+                [{"icon": f"{icon('icon-googleads', int(dp(64)), '4384f4', 'icomoon')}", "text": "[size=32]ads[/size]", "item": "ads", "index": 5}, \
+                {"icon": f"{icon('icon-users', int(dp(64)), '45459a', 'fontello')}", "text": "[size=32]users[/size]", "item": "users", "index": 4}, \
+                {"icon": f"{icon('icon-marketo', int(dp(64)), '424242', 'icomoon')}", "text": "[size=23]sold product[/size]", "item": "sold", "index": 3}, \
+                {"icon": f"{icon('icon-floatplane', int(dp(64)), '42c531', 'icomoon')}", "text": "[size=23]awaiting pro's[/size]", "item": "awaiting", "index": 2}, \
+                {"icon": f"{icon('icon-bell', int(dp(64)), 'f03727', 'fontello')}", "text": "[size=23]notify users[/size]", "item": "notify", "index": 1}, \
+                {"icon": f"{icon('icon-off', int(dp(64)), 'f03727', 'fontello')}", "text": "[size=23]app shutdown[/size]", "item": "shutdown", "index": 0}]
+            RecycleGridLayout:
+                default_size: None, dp(250)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                spacing:dp(20), dp(20)
+                cols: 2
+                padding: dp(10), dp(10), dp(10), dp(10)
