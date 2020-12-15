@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy==master,https://github.com/kivymd/KivyMD/archive/master.zip,git+https://github.com/quitegreensky/akivymd.git,sdl2_ttf==2.0.15
+requirements = python3,kivy==master,https://github.com/kivymd/KivyMD/archive/master.zip,git+https://github.com/quitegreensky/akivymd.git,sdl2_ttf==2.0.15,pyrebase4
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -106,10 +106,10 @@ android.api = 30
 #android.private_storage = True
 
 # (str) Android NDK directory (if empty, it will be automatically downloaded.)
-android.ndk_path = /root/.buildozer/android/platform/android-ndk-r19b
+#android.ndk_path = /root/.buildozer/android/platform/android-ndk-r19b
 
 # (str) Android SDK directory (if empty, it will be automatically downloaded.)
-android.sdk_path = /root/Android/Sdk
+android.sdk_path = ~/Android/Sdk
 
 # (str) ANT directory (if empty, it will be automatically downloaded.)
 #android.ant_path =
